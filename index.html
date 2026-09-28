@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Базы данных в веб-разработке - Базы данных в Web</title>
+<meta name="description" content="Как хранить данные сайта: реляционные и нереляционные базы, когда что выбирать и как не потерять данные.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html" class="current">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">Базы данных в веб-разработке</h1>
+    <p class="lead">Как хранить данные сайта: реляционные и нереляционные базы, когда что выбирать и как не потерять данные.</p>
+    <figure><picture>
+          <source type="image/webp" srcset="img/glavnaya-480.webp 480w, img/glavnaya-960.webp 960w" sizes="(min-width: 992px) 640px, 100vw">
+          <img src="img/glavnaya-960.jpg" srcset="img/glavnaya-480.jpg 480w, img/glavnaya-960.jpg 960w" sizes="(min-width: 992px) 640px, 100vw" width="960" height="540" loading="lazy" alt="Хранилище данных" title="Хранилище данных веб-приложения">
+        </picture>
+        <figcaption>Любое динамическое веб-приложение опирается на хранилище данных.</figcaption></figure>
+        <section>
+          <h2>Зачем сайту база данных</h2>
+          <p>Статичная страница хранит содержимое прямо в HTML. Как только появляются пользователи, заказы, комментарии и поиск, данные приходится выносить в отдельное хранилище: браузер отправляет запрос, сервер обращается к базе и собирает ответ.</p>
+          <p>От выбора базы зависят скорость работы, стоимость поддержки и то, насколько легко менять структуру данных при развитии проекта.</p>
+        </section>
+        <section>
+          <h2>Два больших семейства</h2>
+          <div class="o-grid o-grid--wrap">
+            <div class="o-grid__cell o-grid__cell--width-100 o-grid__cell--width-50@medium">
+              <div class="c-card">
+                <div class="c-card__body">
+                  <h3>SQL</h3>
+                  <p>Данные лежат в таблицах со строгой схемой. Связи между таблицами и транзакции гарантируют целостность.</p>
+                  <a class="c-button c-button--brand" href="sql.html">Читать про SQL</a>
+                </div>
+              </div>
+            </div>
+            <div class="o-grid__cell o-grid__cell--width-100 o-grid__cell--width-50@medium">
+              <div class="c-card">
+                <div class="c-card__body">
+                  <h3>NoSQL</h3>
+                  <p>Документы, пары «ключ-значение», колонки и графы. Гибкая схема и горизонтальное масштабирование.</p>
+                  <a class="c-button c-button--brand" href="nosql.html">Читать про NoSQL</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Что внутри сайта</h2>
+          <ol class="c-list">
+            <li>Основы SQL и реляционной модели.</li>
+            <li>Виды NoSQL-баз и их применение.</li>
+            <li>Сравнительная таблица SQL и NoSQL.</li>
+            <li>Проектирование: нормализация и индексы.</li>
+            <li>ORM и работа с базой из приложения.</li>
+            <li>Безопасность: SQL-инъекции, резервные копии.</li>
+            <li>Материалы: видео и частые вопросы.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Где базы данных используются на практике</h2>
+          <ul class="c-list">
+            <li><b>Интернет-магазин</b> — товары, заказы и остатки на складе почти всегда хранят в реляционной базе, потому что важна точность и связь между таблицами.</li>
+            <li><b>Социальная сеть</b> — ленту новостей, лайки и переписку часто хранят в NoSQL, потому что нагрузка огромная и структура данных постоянно меняется.</li>
+            <li><b>Банковское приложение</b> — здесь без исключений нужен SQL с полной поддержкой транзакций: ошибка в переводе денег недопустима.</li>
+            <li><b>Поисковая система</b> — использует сразу несколько видов хранилищ: индекс для поиска, кэш для скорости, реляционную базу для учётных данных.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Немного истории</h2>
+          <p>Реляционную модель предложил Эдгар Кодд в 1970 году, и с тех пор она остаётся основой большинства бизнес-приложений. Термин NoSQL стал массово использоваться в конце 2000-х, когда крупным сайтам вроде Google, Amazon и Facebook понадобилось хранить данные объёмом, с которым классическим базам было тяжело справляться.</p>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html" class="current">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

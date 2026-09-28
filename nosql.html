@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoSQL: нереляционные базы - Базы данных в Web</title>
+<meta name="description" content="Гибкие модели данных для больших объёмов, быстрых записей и меняющейся структуры.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html" class="current">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">NoSQL: нереляционные базы</h1>
+    <p class="lead">Гибкие модели данных для больших объёмов, быстрых записей и меняющейся структуры.</p>
+    <figure><picture>
+          <source type="image/webp" srcset="img/nosql-480.webp 480w, img/nosql-960.webp 960w" sizes="(min-width: 992px) 640px, 100vw">
+          <img src="img/nosql-960.jpg" srcset="img/nosql-480.jpg 480w, img/nosql-960.jpg 960w" sizes="(min-width: 992px) 640px, 100vw" width="960" height="540" loading="lazy" alt="Граф из связанных узлов" title="Нереляционная модель данных">
+        </picture>
+        <figcaption>NoSQL объединяет несколько моделей: документы, ключи, колонки и графы.</figcaption></figure>
+        <section>
+          <h2>Что значит NoSQL</h2>
+          <p>Термин означает «не только SQL». Такие базы отказываются от жёсткой схемы и часто жертвуют частью гарантий ACID ради скорости и масштабирования на много серверов.</p>
+        </section>
+        <section>
+          <h2>Виды NoSQL-баз</h2>
+          <dl>
+            <dt>Документные (MongoDB, CouchDB)</dt>
+            <dd>Хранят JSON-подобные документы. Подходят для каталогов, профилей и контента.</dd>
+            <dt>Ключ-значение (Redis, Memcached)</dt>
+            <dd>Простейшая модель с очень быстрым доступом. Используются для кэша и сессий.</dd>
+            <dt>Колоночные (Cassandra, HBase)</dt>
+            <dd>Рассчитаны на огромные объёмы записей, например метрики и журналы событий.</dd>
+            <dt>Графовые (Neo4j)</dt>
+            <dd>Хранят узлы и связи. Удобны для соцсетей и рекомендательных систем.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Пример документа</h2>
+          <pre><code>{
+  "_id": "u42",
+  "name": "Анна",
+  "roles": ["admin", "editor"],
+  "address": { "city": "Казань", "zip": "420000" }
+}</code></pre>
+          <p>Вложенные данные лежат в одном документе, поэтому для их чтения не нужны соединения таблиц.</p>
+        </section>
+        <section>
+          <h2>Теорема CAP</h2>
+          <p>Распределённая система не может одновременно гарантировать согласованность, доступность и устойчивость к разделению сети. Разные NoSQL-базы делают разный выбор из этих свойств.</p>
+        </section>
+        <section>
+          <h2>Плюсы и минусы NoSQL</h2>
+          <p><b>Плюсы:</b> гибкая схема, легко добавлять новые поля без миграций, хорошо масштабируется на несколько серверов, высокая скорость записи при больших объёмах данных.</p>
+          <p><b>Минусы:</b> сложнее поддерживать целостность данных, обычно нет полноценных JOIN между коллекциями, данные могут временно быть неактуальными на разных серверах (eventual consistency), меньше готовых инструментов для сложной аналитики.</p>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html" class="current">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Материалы - Базы данных в Web</title>
+<meta name="description" content="Видео по теме и короткие ответы на вопросы, которые чаще всего возникают у новичков.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html" class="current">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">Материалы</h1>
+    <p class="lead">Видео по теме и короткие ответы на вопросы, которые чаще всего возникают у новичков.</p>
+    <section>
+          <h2>Видео по теме</h2>
+          <div class="video">
+            <iframe src="https://vkvideo.ru/video_ext.php?oid=-33388989&id=456239213&hd=2" title="Видео о базах данных" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock" allowfullscreen></iframe>
+          </div>
+          <p class="note">Видео размещено во VK Видео и встроено через iframe.</p>
+        </section>
+        <section>
+          <h2>Частые вопросы</h2>
+          <dl>
+            <dt>Можно ли использовать в одном проекте и SQL, и NoSQL?</dt>
+            <dd>Да, это обычная практика. Например, основные данные хранят в PostgreSQL, а кэш и сессии — в Redis.</dd>
+            <dt>С чего начать новичку?</dt>
+            <dd>Установите SQLite или PostgreSQL, создайте пару связанных таблиц и потренируйтесь в выборках с JOIN, прежде чем переходить к NoSQL.</dd>
+            <dt>Нужно ли всегда нормализовывать базу до конца?</dt>
+            <dd>Нет. Чрезмерная нормализация усложняет запросы. Уровень нормализации выбирают исходя из реальных запросов приложения.</dd>
+            <dt>Что делать, если запрос работает медленно?</dt>
+            <dd>Сначала посмотреть план выполнения запроса (EXPLAIN), затем добавить подходящий индекс под конкретный запрос, а не «на всякий случай».</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Краткий словарь терминов</h2>
+          <dl>
+            <dt>СУБД</dt>
+            <dd>Система управления базами данных — программа, которая хранит данные и обрабатывает запросы к ним (PostgreSQL, MySQL, MongoDB и другие).</dd>
+            <dt>Транзакция</dt>
+            <dd>Группа операций с базой, которая выполняется целиком или не выполняется вообще.</dd>
+            <dt>Индекс</dt>
+            <dd>Вспомогательная структура, которая ускоряет поиск записей по определённому столбцу.</dd>
+            <dt>Миграция</dt>
+            <dd>Скрипт, который изменяет структуру базы данных и хранится вместе с кодом проекта.</dd>
+            <dt>ACID</dt>
+            <dd>Набор свойств, которые гарантируют надёжность транзакций в реляционных базах.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Полезные ссылки</h2>
+          <ul class="c-list">
+            <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN Web Docs</a></li>
+            <li><a href="https://htmlbook.ru" target="_blank" rel="noopener">htmlbook.ru</a></li>
+          </ul>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html" class="current">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

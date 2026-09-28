@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проектирование базы данных - Базы данных в Web</title>
+<meta name="description" content="Как разложить данные по таблицам и ускорить запросы с помощью индексов.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html" class="current">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">Проектирование базы данных</h1>
+    <p class="lead">Как разложить данные по таблицам и ускорить запросы с помощью индексов.</p>
+    <section>
+          <h2>Этапы проектирования</h2>
+          <ol class="c-list">
+            <li>Определить сущности предметной области.</li>
+            <li>Описать их атрибуты и выбрать типы данных.</li>
+            <li>Назначить первичные и внешние ключи.</li>
+            <li>Нормализовать структуру.</li>
+            <li>Добавить индексы под реальные запросы.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Нормализация</h2>
+          <p>Нормализация убирает дублирование данных. Первая нормальная форма требует атомарных значений в ячейках, вторая — зависимости от всего ключа целиком, третья — отсутствия зависимостей между неключевыми столбцами.</p>
+          <p>Слишком глубокая нормализация замедляет чтение из-за множества соединений, поэтому иногда данные осознанно дублируют, то есть денормализуют.</p>
+        </section>
+        <section>
+          <h2>Типы связей между таблицами</h2>
+          <dl>
+            <dt>Один к одному (1:1)</dt>
+            <dd>Одной записи в первой таблице соответствует ровно одна запись во второй. Например, пользователь и его паспортные данные, вынесенные в отдельную таблицу.</dd>
+            <dt>Один ко многим (1:N)</dt>
+            <dd>Самый частый тип связи. Один автор может написать много постов, один заказ может содержать много товарных позиций.</dd>
+            <dt>Многие ко многим (N:M)</dt>
+            <dd>Реализуется через промежуточную таблицу. Например, у студента может быть много курсов, а у курса — много студентов, и связь хранится в отдельной таблице student_course.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Индексы</h2>
+          <p>Индекс работает как оглавление книги: база находит строку без полного перебора таблицы. Он ускоряет чтение, но замедляет запись и занимает место.</p>
+          <pre><code>CREATE INDEX idx_orders_user_created
+  ON orders (user_id, created_at DESC);</code></pre>
+        </section>
+        <section>
+          <h2>Миграции</h2>
+          <p>Изменения структуры оформляют как версионируемые скрипты и хранят вместе с кодом в Git. Так схему одинаково применяют на компьютере разработчика, тестовом и рабочем серверах.</p>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html" class="current">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

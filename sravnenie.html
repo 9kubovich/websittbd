@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL и NoSQL: сравнение - Базы данных в Web</title>
+<meta name="description" content="Ключевые различия в одной таблице и рекомендации по выбору.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html" class="current">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">SQL и NoSQL: сравнение</h1>
+    <p class="lead">Ключевые различия в одной таблице и рекомендации по выбору.</p>
+    <section>
+          <h2>Сравнительная таблица</h2>
+          <div class="table-wrap">
+            <table class="c-table c-table--striped">
+              <caption class="c-table__caption">Основные отличия SQL и NoSQL баз данных</caption>
+              <thead class="c-table__head">
+                <tr class="c-table__row c-table__row--heading">
+                  <th class="c-table__cell" scope="col">Критерий</th>
+                  <th class="c-table__cell" scope="col">SQL</th>
+                  <th class="c-table__cell" scope="col">NoSQL</th>
+                </tr>
+              </thead>
+              <tbody class="c-table__body">
+                <tr class="c-table__row"><th class="c-table__cell" scope="row">Модель данных</th><td class="c-table__cell">Таблицы</td><td class="c-table__cell">Документы, ключи, колонки, графы</td></tr>
+                <tr class="c-table__row"><th class="c-table__cell" scope="row">Схема</th><td class="c-table__cell">Жёсткая, задаётся заранее</td><td class="c-table__cell">Гибкая или отсутствует</td></tr>
+                <tr class="c-table__row"><th class="c-table__cell" scope="row">Масштабирование</th><td class="c-table__cell">Обычно вертикальное</td><td class="c-table__cell">Горизонтальное</td></tr>
+                <tr class="c-table__row"><th class="c-table__cell" scope="row">Транзакции</th><td class="c-table__cell">Полный ACID</td><td class="c-table__cell">Зависит от СУБД, часто BASE</td></tr>
+                <tr class="c-table__row"><th class="c-table__cell" scope="row">Связи</th><td class="c-table__cell">JOIN между таблицами</td><td class="c-table__cell">Вложение или ссылки</td></tr>
+                <tr class="c-table__row"><th class="c-table__cell" scope="row">Примеры</th><td class="c-table__cell">PostgreSQL, MySQL</td><td class="c-table__cell">MongoDB, Redis</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Когда выбирать SQL</h2>
+          <ul class="c-list">
+            <li>Данные строго структурированы и связаны между собой.</li>
+            <li>Важна целостность: финансы, заказы, учёт.</li>
+            <li>Нужны сложные отчёты и аналитические запросы.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Когда выбирать NoSQL</h2>
+          <ul class="c-list">
+            <li>Структура данных часто меняется или заранее неизвестна.</li>
+            <li>Нужна очень высокая скорость записи и чтения при большой нагрузке.</li>
+            <li>Данные естественно выглядят как документы или графы.</li>
+          </ul>
+          <p>На практике многие проекты сочетают оба подхода: основные данные лежат в PostgreSQL, а сессии и кэш — в Redis.</p>
+        </section>
+        <section>
+          <h2>Частые заблуждения</h2>
+          <dl>
+            <dt>«NoSQL всегда быстрее SQL»</dt>
+            <dd>Неверно. Скорость зависит от задачи и от того, насколько правильно спроектирована база. Правильно настроенный PostgreSQL часто быстрее плохо спроектированной NoSQL-базы.</dd>
+            <dt>«В NoSQL совсем нет схемы»</dt>
+            <dd>Схема просто не проверяется базой на уровне таблиц, но приложение всё равно ожидает определённую структуру данных — иначе код сломается.</dd>
+            <dt>«SQL устарел»</dt>
+            <dd>Неверно. Реляционные базы продолжают развиваться и остаются основным выбором там, где важна целостность данных: банки, учёт, бухгалтерия.</dd>
+          </dl>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html" class="current">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

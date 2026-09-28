@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL: реляционные базы данных - Базы данных в Web</title>
+<meta name="description" content="Таблицы, ключи, связи и язык запросов, на котором работает большая часть веба.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html" class="current">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">SQL: реляционные базы данных</h1>
+    <p class="lead">Таблицы, ключи, связи и язык запросов, на котором работает большая часть веба.</p>
+    <figure><picture>
+          <source type="image/webp" srcset="img/sql-480.webp 480w, img/sql-960.webp 960w" sizes="(min-width: 992px) 640px, 100vw">
+          <img src="img/sql-960.jpg" srcset="img/sql-480.jpg 480w, img/sql-960.jpg 960w" sizes="(min-width: 992px) 640px, 100vw" width="960" height="540" loading="lazy" alt="Таблица базы данных" title="Реляционная таблица">
+        </picture>
+        <figcaption>Реляционная база хранит данные в таблицах из строк и столбцов.</figcaption></figure>
+        <section>
+          <h2>Реляционная модель</h2>
+          <p>Каждая таблица описывает одну сущность: пользователей, товары, заказы. Строка — отдельная запись, столбец — её свойство с заданным типом. Уникальность записи обеспечивает первичный ключ, а связь между таблицами задаёт внешний ключ.</p>
+          <p>Схема определяется заранее. Это удобно для контроля данных, но изменения структуры требуют миграций.</p>
+        </section>
+        <section>
+          <h2>Популярные СУБД</h2>
+          <ul class="c-list">
+            <li><b>PostgreSQL</b> — мощная открытая СУБД с богатыми типами данных и JSONB.</li>
+            <li><b>MySQL / MariaDB</b> — стандарт хостинга и CMS, например WordPress.</li>
+            <li><b>SQLite</b> — база в одном файле, подходит для прототипов и мобильных приложений.</li>
+            <li><b>Microsoft SQL Server</b> — корпоративное решение экосистемы .NET.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Основные запросы</h2>
+          <p>Язык SQL делится на команды выборки, изменения и описания структуры. Пример выборки последних заказов пользователя:</p>
+          <pre><code>SELECT o.id, o.created_at, SUM(i.price * i.qty) AS total
+FROM orders AS o
+JOIN order_items AS i ON i.order_id = o.id
+WHERE o.user_id = 42
+GROUP BY o.id, o.created_at
+ORDER BY o.created_at DESC
+LIMIT 10;</code></pre>
+        </section>
+        <section>
+          <h2>CRUD: создание, чтение, изменение, удаление</h2>
+          <p>Почти любая работа с таблицей сводится к четырём операциям, которые вместе называют CRUD (Create, Read, Update, Delete):</p>
+          <pre><code>-- создать запись
+INSERT INTO users (name, email) VALUES ('Анна', 'anna@example.com');
+
+-- изменить запись
+UPDATE users SET name = 'Анна Иванова' WHERE id = 42;
+
+-- удалить запись
+DELETE FROM users WHERE id = 42;</code></pre>
+        </section>
+        <section>
+          <h2>Типы данных</h2>
+          <p>Для каждого столбца заранее указывают тип данных, который он будет хранить. Основные типы почти одинаковы во всех СУБД:</p>
+          <ul class="c-list">
+            <li><b>INTEGER</b> — целое число, например возраст или количество товара.</li>
+            <li><b>VARCHAR(n)</b> — текст ограниченной длины, например имя или email.</li>
+            <li><b>TEXT</b> — длинный текст без ограничения, например описание товара.</li>
+            <li><b>BOOLEAN</b> — логическое значение true/false.</li>
+            <li><b>DATE / TIMESTAMP</b> — дата или дата со временем.</li>
+            <li><b>DECIMAL(p, s)</b> — точное число с фиксированной точностью, для денег.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Транзакции и ACID</h2>
+          <p>Транзакция объединяет несколько операций в одну: либо выполняются все, либо ни одна. Принципы ACID — атомарность, согласованность, изолированность и долговечность — защищают данные от сбоев, например при переводе денег между счетами.</p>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html" class="current">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

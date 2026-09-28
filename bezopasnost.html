@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Безопасность и надёжность данных - Базы данных в Web</title>
+<meta name="description" content="Главные угрозы для базы данных сайта и способы защиты.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html" class="current">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">Безопасность и надёжность данных</h1>
+    <p class="lead">Главные угрозы для базы данных сайта и способы защиты.</p>
+    <figure><picture>
+          <source type="image/webp" srcset="img/bezopasnost-480.webp 480w, img/bezopasnost-960.webp 960w" sizes="(min-width: 992px) 640px, 100vw">
+          <img src="img/bezopasnost-960.jpg" srcset="img/bezopasnost-480.jpg 480w, img/bezopasnost-960.jpg 960w" sizes="(min-width: 992px) 640px, 100vw" width="960" height="540" loading="lazy" alt="Щит с замком" title="Защита базы данных">
+        </picture>
+        <figcaption>Безопасность базы данных строится на нескольких уровнях.</figcaption></figure>
+        <section>
+          <h2>SQL-инъекции</h2>
+          <p>Если подставлять ввод пользователя прямо в строку запроса, злоумышленник сможет изменить смысл команды. Защита — параметризованные запросы.</p>
+          <pre><code>-- Опасно
+"SELECT * FROM users WHERE email = '" + email + "'"
+
+-- Безопасно
+cursor.execute("SELECT * FROM users WHERE email = %s", (email,))</code></pre>
+        </section>
+        <section>
+          <h2>Чек-лист защиты</h2>
+          <ul class="c-list">
+            <li>Хранить пароли только в виде хэшей с солью (bcrypt, argon2).</li>
+            <li>Выдавать приложению минимально необходимые права.</li>
+            <li>Не открывать порт базы в интернет.</li>
+            <li>Шифровать соединение (TLS) и резервные копии.</li>
+            <li>Не хранить секреты в репозитории.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Разграничение прав доступа</h2>
+          <p>У приложения не должно быть учётной записи администратора базы данных. Обычно заводят отдельного пользователя с правами только на нужные таблицы и только на нужные операции.</p>
+          <pre><code>CREATE USER app_user WITH PASSWORD 'секрет';
+GRANT SELECT, INSERT, UPDATE ON orders TO app_user;
+REVOKE DELETE ON orders FROM app_user;</code></pre>
+          <p>Так даже при взломе самого приложения злоумышленник не сможет, например, удалить таблицы или изменить структуру базы.</p>
+        </section>
+        <section>
+          <h2>Резервное копирование</h2>
+          <p>Копия, которую ни разу не пробовали восстановить, не считается копией. Настройте регулярные бэкапы, храните их отдельно от сервера и периодически проверяйте восстановление.</p>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html" class="current">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

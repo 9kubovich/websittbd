@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты - Базы данных в Web</title>
+<meta name="description" content="Есть вопрос по материалам сайта? Напишите нам.">
+<link rel="stylesheet" href="https://unpkg.com/@blaze/css@12.2.0/dist/blaze/blaze.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="o-container header-inner">
+    <a href="index.html" class="logo">Базы данных <span>в Web</span></a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="burger">&#9776;</label>
+    <nav class="menu">
+      <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="sql.html">SQL</a></li>
+            <li><a href="nosql.html">NoSQL</a></li>
+            <li><a href="sravnenie.html">Сравнение</a></li>
+            <li><a href="proektirovanie.html">Проектирование</a></li>
+            <li><a href="orm.html">ORM</a></li>
+            <li><a href="bezopasnost.html">Безопасность</a></li>
+            <li><a href="materialy.html">Материалы</a></li>
+            <li><a href="kontakty.html" class="current">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="o-container wrapper">
+  <main class="content">
+    <h1 class="title">Контакты</h1>
+    <p class="lead">Есть вопрос по материалам сайта? Напишите нам.</p>
+    <section>
+          <h2>Форма обратной связи</h2>
+          <form action="#" method="post">
+            <div class="o-form-element">
+              <label class="c-label" for="name">Имя</label>
+              <input class="c-field" id="name" name="name" type="text" required>
+            </div>
+            <div class="o-form-element">
+              <label class="c-label" for="email">Электронная почта</label>
+              <input class="c-field" id="email" name="email" type="email" required>
+            </div>
+            <div class="o-form-element">
+              <label class="c-label" for="topic">Тема</label>
+              <select class="c-field" id="topic" name="topic">
+                <option>SQL</option>
+                <option>NoSQL</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div class="o-form-element">
+              <label class="c-label" for="message">Сообщение</label>
+              <textarea class="c-field" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button class="c-button c-button--brand" type="submit">Отправить сообщение</button>
+          </form>
+        </section>
+        <section>
+          <h2>Другие способы связи</h2>
+          <ul class="c-list">
+            <li>Почта: <a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></li>
+          </ul>
+        </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="c-card">
+      <div class="c-card__body">
+        <h2>Разделы сайта</h2>
+        <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="sql.html">SQL</a></li>
+        <li><a href="nosql.html">NoSQL</a></li>
+        <li><a href="sravnenie.html">Сравнение</a></li>
+        <li><a href="proektirovanie.html">Проектирование</a></li>
+        <li><a href="orm.html">ORM</a></li>
+        <li><a href="bezopasnost.html">Безопасность</a></li>
+        <li><a href="materialy.html">Материалы</a></li>
+        <li><a href="kontakty.html" class="current">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="o-container footer-inner">
+    <p>&copy; 2026 Учебный проект «Базы данных в Web-разработке».</p>
+    <ul class="footer-links">
+      <li><a href="sql.html">SQL</a></li>
+      <li><a href="nosql.html">NoSQL</a></li>
+      <li><a href="kontakty.html">Контакты</a></li>
+      <li><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN</a></li>
+    </ul>
+    <p><a href="mailto:mox200619@gmail.com">mox200619@gmail.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
